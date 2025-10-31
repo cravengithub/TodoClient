@@ -1,0 +1,69 @@
+<div class="page-container">
+    <div class="todo-wrapper"> <!-- Kita gunakan ulang style dari 'todo' -->
+        <!-- Header -->
+        <header class="todo-header">
+            <h2>Profil Saya</h2>
+            <nav class="nav-links">
+                <a routerLink="/todos">Kembali ke Todo</a>
+            </nav>
+        </header>
+        <!-- Konten Form -->
+        <div class="profile-content">
+            <p class="loading-text" *ngIf="isLoading">Memuat profil...</p>
+
+            <div class="alert-error" *ngIf="errorMessage">{{ errorMessage }}</div>
+            <div class="alert-success" *ngIf="successMessage">{{ successMessage }}</div>
+
+            <form *ngIf="!isLoading" (ngSubmit)="saveChanges(profileForm)" #profileForm="ngForm" class="profile-form" novalidate>
+                <!-- Form ini bind ke UserDTO.cs (Name, Address, NoTin, dll) -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" [(ngModel)]="model.username" #usernameModel="ngModel" required minlength="3">
+                    <div class="field-error" *ngIf="usernameModel.invalid && (usernameModel.dirty || usernameModel.touched || submitted)">
+                        <div *ngIf="usernameModel.errors?.['required']">Username wajib diisi.</div>
+                        <div *ngIf="usernameModel.errors?.['minlength']">Username minimal 3 karakter.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" [(ngModel)]="model.name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="model.email" #emailModel="ngModel" email>
+                    <div class="field-error" *ngIf="emailModel.invalid && (emailModel.dirty || emailModel.touched || submitted)">
+                        <div *ngIf="emailModel.errors?.['email']">Format email tidak valid.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telepon</label>
+                    <input type="text" id="phone" name="phone" [(ngModel)]="model.phone">
+                </div>
+                <div class="form-group">
+                    <label for="address">Alamat</label>
+                    <textarea id="address" name="address" [(ngModel)]="model.address" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="noTin">No. TIN</label>
+                    <input type="text" id="noTin" name="noTin" [(ngModel)]="model.noTin" #noTinModel="ngModel" required pattern="^[0-9A-Za-z-]+$">
+                    <div class="field-error" *ngIf="noTinModel.invalid && (noTinModel.dirty || noTinModel.touched || submitted)">
+                        <div *ngIf="noTinModel.errors?.['required']">No. TIN wajib diisi.</div>
+                        <div *ngIf="noTinModel.errors?.['pattern']">No. TIN berisi karakter tidak valid.</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn-save" [disabled]="profileForm.invalid">
+                    Simpan Perubahan
+                </button>
+            </form>
+            <!-- Area Berbahaya (Danger Zone) -->
+            <div class="danger-zone">
+                <h4>Zona Berbahaya</h4>
+                <p>Tindakan ini tidak dapat dibatalkan.</p>
+                <button (click)="deleteAccount()" class="btn-delete">
+                    Hapus Akun Saya
+                </button>
+            </div>
+            
+        </div>
+    </div>
+</div>

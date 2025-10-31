@@ -1,0 +1,62 @@
+<!-- 
+  Struktur HTML ini adalah CONTOH untuk CSS di atas.
+  Ini adalah implementasi lengkap dari 'Modul Pelatihan: Frontend Angular untuk Manajemen Todo'
+-->
+<div class="page-container">
+    <div class="todo-wrapper">
+
+        <!-- Header -->
+        <header class="todo-header">
+            <h2>Daftar Todo Saya</h2>
+            <nav class="nav-links">
+                <a routerLink="/profile">Profil Saya</a>
+                <button (click)="logout()" class="logout-button">Logout</button>
+            </nav>
+        </header>
+
+        <!-- Form Tambah -->
+        <form (ngSubmit)="addTodo()" class="add-form">
+            <input type="text" class="add-input" placeholder="Apa yang perlu dilakukan?" [(ngModel)]="name"
+                name="newTodoName" required />
+            <button type="submit" class="add-button" [disabled]="!name.trim()">
+                Tambah
+            </button>
+        </form>
+
+        <!-- Pesan Error -->
+        @if (errorMessage) {
+        <div class="alert-error" style="margin: 0 2rem 1rem 2rem;">
+            {{ errorMessage }}
+        </div>
+        }
+
+        <!-- Konten Daftar -->
+        <div class="list-content">
+            @if (isLoading) {
+            <p class="loading-text">Memuat todo...</p>
+            }
+
+            @if (!isLoading && todos.length === 0) {
+            <div class="empty-state">
+                <p>Hebat! Tidak ada todo yang perlu dikerjakan.</p>
+            </div>
+            }
+
+            @if (!isLoading && todos.length > 0) {
+            <ul class="todo-list">
+                @for (item of todos; track item.id) {
+                <!-- Tambahkan kelas 'completed' jika item.isComplete true -->
+                <li class="todo-item" [class.completed]="item.isComplete">
+                    <input type="checkbox" [checked]="item.isComplete" (change)="toggleComplete(item)" />
+                    <span class="todo-name">{{ item.name }}</span>
+                    <button (click)="deleteTodo(item.id!)" class="delete-button">
+                        &times; <!-- Ini adalah tanda 'X' -->
+                    </button>
+                </li>
+                }
+            </ul>
+            }
+        </div>
+
+    </div>
+</div>

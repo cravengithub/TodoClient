@@ -1,0 +1,138 @@
+/* Mengatur kontainer utama halaman login */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* Memenuhi tinggi layar */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Kartu form login */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+/* Judul (h2) */
+.login-card h2 {
+    font-size: 2rem;
+    /* 32px */
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+}
+
+/* Sub-judul (p) */
+.login-card p {
+    font-size: 1rem;
+    /* 16px */
+    color: #4a5568;
+    margin-bottom: 2rem;
+}
+
+/* Form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    /* Jarak antar elemen di dalam form */
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    /* 14px */
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4299e1;
+    /* Biru */
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+}
+
+/* Tombol Login */
+.login-button {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #4299e1;
+    /* Biru */
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 0.5rem;
+}
+
+.login-button:hover {
+    background-color: #3182ce;
+}
+
+.login-button:active {
+    transform: scale(0.98);
+}
+
+.login-button:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Link untuk registrasi */
+.register-link {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: #4a5568;
+}
+
+.register-link a {
+    color: #4299e1;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.register-link a:hover {
+    color: #3182ce;
+    text-decoration: underline;
+}
+
+/* Untuk pesan error */
+.alert-error {
+    background-color: #fed7d7;
+    color: #c53030;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}

@@ -1,0 +1,103 @@
+/* Impor SEMUA style dari todo-list.css */
+@import '../todo-list/todo-list.css';
+
+/* CSS di bawah ini adalah TAMBAHAN khusus untuk halaman profil,
+menggunakan kembali kelas-kelas dari 'login.component.css'
+*/
+.profile-content {
+    padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4299e1;
+    /* Biru */
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+}
+
+.btn-save {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #4299e1;
+    /* Biru */
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.btn-save:hover {
+    background-color: #3182ce;
+}
+
+/* Zona Berbahaya */
+.danger-zone {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed #fecaca;
+    /* Merah muda */
+}
+
+.danger-zone h4 {
+    color: #c53030;
+    /* Merah */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.danger-zone p {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-top: 0;
+}
+
+.btn-delete {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #c53030;
+    /* Merah */
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+    background-color: #9b2c2c;
+}

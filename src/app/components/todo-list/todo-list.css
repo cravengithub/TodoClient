@@ -1,0 +1,201 @@
+/* Kontainer Halaman Utama */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Wrapper utama untuk aplikasi Todo */
+.todo-wrapper {
+  width: 100%;
+  max-width: 700px; /* Sedikit lebih lebar dari form login */
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  overflow: hidden; /* Agar border-radius rapi */
+}
+
+/* Header di dalam kartu */
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.todo-header h2 {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
+}
+
+/* Navigasi di header */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4299e1; /* Biru primer */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #3182ce;
+  text-decoration: underline;
+}
+
+/* Tombol Logout dibuat mencolok */
+.logout-button {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c53030; /* Merah (bahaya) */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.logout-button:hover {
+  color: #9b2c2c;
+  text-decoration: underline;
+}
+
+/* Form untuk menambah item baru */
+.add-form {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.add-input {
+  flex-grow: 1; /* Mengambil sisa ruang */
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  background-color: #f7fafc;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+}
+
+.add-button {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4299e1; /* Biru */
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap; /* Mencegah teks "Add" terlipat */
+}
+
+.add-button:hover {
+  background-color: #3182ce;
+}
+
+.add-button:active {
+  transform: scale(0.98);
+}
+
+/* Daftar Todo */
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0; /* Padding akan diatur oleh .todo-item */
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+.todo-item:last-child {
+  border-bottom: none; /* Hapus border di item terakhir */
+}
+
+.todo-item:hover {
+  background-color: #f7fafc;
+}
+
+/* Checkbox kustom */
+.todo-item input[type="checkbox"] {
+  /* Ukuran checkbox lebih besar agar mudah diklik */
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  accent-color: #4299e1; /* Warna centang */
+  flex-shrink: 0; /* Mencegah checkbox mengecil */
+}
+
+/* Nama/Teks Todo */
+.todo-name {
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #2d3748;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Tombol Hapus (X) */
+.delete-button {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: #a0aec0; /* Abu-abu netral */
+  font-size: 1.25rem; /* Membuat 'X' lebih besar */
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.delete-button:hover {
+  color: #c53030; /* Merah saat hover */
+  background-color: #fed7d7; /* Latar belakang merah muda */
+}
+
+/* Styling untuk item yang sudah selesai */
+.todo-item.completed .todo-name {
+  color: #718096; /* Warna teks pudar */
+  text-decoration: line-through;
+}
+
+/* Pesan saat loading atau daftar kosong */
+.loading-text,
+.empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 1rem;
+  color: #718096;
+}
+
+.empty-state p {
+  margin: 0;
+  font-weight: 500;
+}
